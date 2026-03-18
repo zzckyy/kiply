@@ -4,7 +4,12 @@
   "webDir": "www",
   "plugins": {
     "App": {
-      "disableBackButtonHandler": false
+      "disableBackButtonHandler": false,
+      "statusBarBackgroundColor": "transparent",
+      "lauchAutoHide": true,
+      "hideLogs": true,
+      "showSplashScreen": false,
+      "splashscreenAutoHide": true
     }
   }
 }
