@@ -14,12 +14,11 @@ function createTodoBox()
     const todoBox = document.createElement("div");
     todoBox.className = "box";
     todoBox.innerHTML = `
-        <input type="text" name="todoTitle" id="todoTitle" placeholder="Enter todo title" class=" todo-title">
-        <hr>
+        <input type="text" name="todoTitle" id="todoTitle" placeholder="Enter todo title" class=" todo-title px-2 mb-3">
 
         <div class="todo-items"></div>
 
-        <div class="is-flex is-justify-content-end mt-4">
+        <div class="is-flex is-justify-content-end">
             <button class="button is-small is-link mx-1 add-btn">
                 Add
             </button>
