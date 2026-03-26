@@ -14,7 +14,7 @@ function createTodoBox()
     const todoBox = document.createElement("div");
     todoBox.className = "box";
     todoBox.innerHTML = `
-        <input type="text" name="todoTitle" id="todoTitle" placeholder="Enter todo title" class=" todo-title mb-3">
+        <input type="text" name="todoTitle" id="todoTitle" placeholder="Enter todo title" class=" todo-title">
         <hr>
 
         <div class="todo-items"></div>
@@ -62,8 +62,12 @@ function createTodoBox()
     todoBox.querySelectorAll("input").forEach(input => {
         input.addEventListener("input", saveTodo);
     });
+    
+    todoBox.addEventListener("input", saveTodo);
 
     return todoBox;
+
+    
 
 }
 
@@ -77,7 +81,7 @@ function saveTodo() {
 
         if (title) {
             const items = [];
-            const itemInputs = box.querySelectorAll(".todo-items input");
+            const itemInputs = box.querySelectorAll(".todo-input");
 
             itemInputs.forEach(input => {
                 const itemText = input.value.trim();
@@ -103,9 +107,9 @@ function loadTodos() {
         const itemsContainer = todoBox.querySelector(".todo-items");
         todo.items.forEach(item => {
             const itemDiv = document.createElement("div");
-            itemDiv.className = "is-flex p-2 is-justify-content-between mb-2";
+            itemDiv.className = "is-flex p-2 is-justify-content-between mb-2 ";
             itemDiv.innerHTML = `
-                <input type="text" class=" todo-items is-small mr-2" placeholder="Todo item" value="${item}">
+                <input type="text" class=" todo-input is-small mr-2" placeholder="Todo item" value="${item}">
                 <button class="button is-small is-danger delete-item">Remove</button>
             `;
 

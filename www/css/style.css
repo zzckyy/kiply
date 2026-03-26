@@ -29,9 +29,10 @@ body{
 .dropdown-menu,
 .dropdown-content, .box, .card {
 
-  border: none;
-  border-radius: 16px;
-  background: var(--card);
+  border: none !important;
+  border-radius: 16px !important;
+  background: var(--card) !important;
+  box-shadow: none !important;
 }
 
 .listNotes,
@@ -410,7 +411,7 @@ i,
 
 .todo-title{
   border: none;
-  background: var(--btn);
+  background: transparent;
   font-size: 1rem;
   width: 100%;
   padding: 8px;
@@ -420,10 +421,18 @@ i,
 .todo-input {
   border: none;
   background: var(--btn);
-  border-radius: 6px;
+  border-radius: 16px ;
   width: 100%;
 }
 
 .todo-items{
   background: var(--btn);
+  border-radius: 16px;
+}
+
+.searchInput {
+  border: none !important;
+  background: var(--btn) !important;
+  border-radius: 6px;
+  width: 100%;
 }
