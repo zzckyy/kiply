@@ -1,16 +1,5 @@
-@font-face {
-  font-family: 'Inter';
-  src: url('../assets/font/Inter_18pt-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-
 
 html, body, .box, .card, .sidebar {
-
-  font-family: 'Inter', sans-serif;
   background-color: var(--bg);
 }
 
