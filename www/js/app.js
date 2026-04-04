@@ -104,3 +104,20 @@ window.clearAllData = function () {
   localStorage.removeItem("keepit_notes");
   alert("All data has been deleted");
 };
+
+// keyboard aware
+// const { Keyboard } = window.Capacitor.Plugins;
+
+// Keyboard.addListener('keyboardWillShow', (info) => {
+//   const toolbar = document.querySelector('.toolbar-container');
+//   if (toolbar) {
+//     toolbar.style.bottom = info.keyboardHeight + 'px';
+//   }
+// });
+
+// Keyboard.addListener('keyboardWillHide', () => {
+//   const toolbar = document.querySelector('.toolbar-container');
+//   if (toolbar) {
+//     toolbar.style.bottom = '0px';
+//   }
+// });

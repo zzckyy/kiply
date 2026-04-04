@@ -37,6 +37,12 @@ function loadNote() {
   DOM.text.innerHTML = note.text || "";
 }
 
+const editor = document.getElementById("textInput");
+
+  editor.addEventListener("click", () => {
+  editor.focus();
+});
+
 loadNote();
 
 

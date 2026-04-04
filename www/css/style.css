@@ -118,16 +118,16 @@
   border-radius: 1rem;
 }
 
-
-
 .backBtn {
   align-items: center;
 
 }
 
 .editor-area {
-  min-height: 12rem;
+  min-height: 20rem;
   line-height: 1.6;
+
+  padding-bottom: 600px;
   
 }
 
@@ -154,11 +154,6 @@
   font-weight: bold;
 }
 
-.editor-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  border-bottom: var(--background) 1px solid;
-}
 
 .editBtn {
   background: transparent;
@@ -254,6 +249,7 @@ i,
   padding: 8px 12px;
   margin-top: 8px;
   border: 1px solid var(--background);
+  
 }
 
 .editor-stats span {
@@ -263,16 +259,13 @@ i,
 /* Toolbar Container */
 .toolbar-container {
   background: var(--card);
-  border-radius: 8px;
+  /* border-radius: 8px; */
   padding: 12px;
   /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
   border: 0px solid var(--background);
-
-  flex: 1 !important;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
+  
+  
 }
 
 /* Editor Container */
@@ -283,6 +276,8 @@ i,
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   border: 1px solid var(--background);
   width: 100%;
+
+  padding-bottom: 100px;
 }
 
 .editor-container .input {
