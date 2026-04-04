@@ -32,3 +32,4 @@ KeepIt aims to:
 - @capacitor/share@8.0.0
 - @capacitor/splash-screen@8.0.1
 - @capacitor/status-bar@8.0.2
+- @capacitor/keyboard
