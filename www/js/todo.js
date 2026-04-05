@@ -20,10 +20,10 @@ function createTodoBox()
 
         <div class="is-flex is-justify-content-end">
             <button class="button is-small is-link mx-1 add-btn">
-                Add
+                <i class="bx bx-plus"></i>
             </button>
             <button class="button is-small is-danger delete-box">
-                Delete
+                <i class="bx bx-trash"></i>
             </button>
         </div>
     `;
@@ -36,7 +36,8 @@ function createTodoBox()
         newItem.className = "is-flex p-2 is-justify-content-between mb-2";
         newItem.innerHTML = `
             <input type="text" class=" todo-input is-small mr-2" placeholder="Todo item">
-            <button class="button is-small is-danger delete-item">Remove</button>
+            <button class="button is-small is-danger delete-item">
+            <i class="bx bx-minus"></i></button>
         `;
 
         // Add event listener for "Delete" button of the item

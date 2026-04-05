@@ -2,6 +2,15 @@ if (!window.THEME_KEY) {
   window.THEME_KEY = "keepit-theme";
 }
 
+async function updateStatusBar() {
+  if (!window.Capacitor?.Plugins) return;
+
+  const { StatusBar } = window.Capacitor.Plugins;
+
+  await StatusBar.setStyle({
+    style: isDarkMode() ? "DARK" : "LIGHT"
+  });
+}
 
 function applyTheme(theme) {
   if (theme === "auto") {
@@ -9,7 +18,11 @@ function applyTheme(theme) {
     document.documentElement.dataset.theme = isDark ? "dark" : "light";
   } else {
     document.documentElement.dataset.theme = theme;
+
+    updateStatusBar();
   }
+
+  
 }
 
 function setTheme(theme) {
@@ -28,5 +41,24 @@ window.matchMedia("(prefers-color-scheme: dark)")
     const saved = localStorage.getItem(THEME_KEY);
     if (saved === "auto") applyTheme("auto");
   });
+
+function isDarkMode() {
+  const theme = document.documentElement.dataset.theme;
+
+  if (theme === "auto") {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
+  return theme === "dark";
+}
+
+window.addEventListener("load", async () => {
+  if (window.Capacitor?.Plugins) {
+    const { StatusBar, SplashScreen } = window.Capacitor.Plugins;
+
+    await SplashScreen.hide();
+    await StatusBar.setOverlaysWebView({ overlay: true });
+  }
+});
 
 initTheme();

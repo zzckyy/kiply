@@ -1,32 +1,21 @@
-/* ===============================
-   PARAMS
-================================ */
+// params
 const params = new URLSearchParams(window.location.search);
 let noteId = params.get("id");
 
 
-/* ===============================
-   DOM CACHE
-================================ */
+// dom
 const DOM = {
   title: document.getElementById("titleInput"),
-  text: document.getElementById("textInput"),
-  wordCount: document.getElementById("wordCount"),
-  charCount: document.getElementById("charCount"),
+  text: document.getElementById("textInput")
 };
 
 
-/* ===============================
-   STATE
-================================ */
+// variable state
 let notes = getNotes();
 let note = null;
 let saveTimer = null;
 
-
-/* ===============================
-   LOAD NOTE
-================================ */
+// load note
 function loadNote() {
   if (!noteId || !DOM.title || !DOM.text) return;
 
@@ -46,9 +35,7 @@ const editor = document.getElementById("textInput");
 loadNote();
 
 
-/* ===============================
-   AUTOSAVE (DEBOUNCE)
-================================ */
+// autosave function
 function autoSave() {
   if (!DOM.title || !DOM.text) return;
 
@@ -87,9 +74,7 @@ function autoSave() {
 }
 
 
-/* ===============================
-   FORMAT TOOLBAR
-================================ */
+// toolbar formatting
 function format(command, value = null) {
   if (!DOM.text) return;
 
@@ -105,21 +90,11 @@ function format(command, value = null) {
 }
 
 
-/* ===============================
-   EVENTS
-================================ */
+// autosave on title and text change
 DOM.title?.addEventListener("input", () => {
   autoSave();
-  updateCounts();
 });
 
 DOM.text?.addEventListener("input", () => {
   autoSave();
-  updateCounts();
 });
-
-
-/* ===============================
-   INIT
-================================ */
-updateCounts();

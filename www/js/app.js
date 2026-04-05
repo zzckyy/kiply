@@ -1,6 +1,4 @@
-// =====================
-// CAPACITOR HELPERS
-// =====================
+// helper functions
 function isAndroid() {
   return (
     window.Capacitor &&
@@ -9,9 +7,7 @@ function isAndroid() {
   );
 }
 
-// =====================
-// EXPORT NOTES (GLOBAL)
-// =====================
+// export fitur
 window.exportNotes = async function () {
   try {
     const notes = getNotes();
@@ -19,14 +15,14 @@ window.exportNotes = async function () {
 
     console.log("Platform:", window.Capacitor?.getPlatform?.());
 
-    // 🌐 WEB MODE
+    // web
     if (!isAndroid()) {
       const blob = new Blob([dataStr], { type: "application/json" });
       const url = URL.createObjectURL(blob);
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = `keepit-backup-${Date.now()}.json`;
+      a.download = `Keepit Backup ${Date.now()}.json`;
       a.click();
 
       URL.revokeObjectURL(url);
@@ -34,7 +30,7 @@ window.exportNotes = async function () {
       return;
     }
 
-    // 📱 ANDROID MODE
+    // android
     const Plugins = window.Capacitor.Plugins || {};
     const Filesystem = Plugins.Filesystem;
     const Share = Plugins.Share;
@@ -45,7 +41,7 @@ window.exportNotes = async function () {
 
     console.log("Export Android mode");
 
-    const fileName = `keepit-backup-${Date.now()}.json`;
+    const fileName = `Keepit Backup ${Date.now()}.json`;
 
     const result = await Filesystem.writeFile({
       path: fileName,
@@ -54,15 +50,15 @@ window.exportNotes = async function () {
       encoding: "utf8"        
     });
 
-    console.log("File tersimpan:", result.uri);
+    console.log("File saved:", result.uri);
 
     await Share.share({
-      title: "Backup KeepIt",
-      text: "File backup KeepIt",
+      title: "Backup Keepit",
+      text: "File backup Keepit",
       url: result.uri
     });
 
-    alert("Export success");
+    alert("Notes Exported. Please check your share options to save the file.");
 
   } catch (err) {
     console.error("Export Error:", err);
@@ -73,9 +69,7 @@ window.exportNotes = async function () {
   }
 };
 
-// =====================
-// IMPORT NOTES
-// =====================
+// import fitur
 window.importNotes = function (event) {
   const file = event.target.files[0];
   if (!file) return;
@@ -84,7 +78,7 @@ window.importNotes = function (event) {
   reader.onload = function (e) {
     try {
       const data = JSON.parse(e.target.result);
-      if (!Array.isArray(data)) throw new Error("Wrong format, import .json file backup");
+      if (!Array.isArray(data)) throw new Error("Wrong format, import .json file backup format");
 
       saveNotes(data);
       alert("Notes has been restored");
@@ -96,9 +90,7 @@ window.importNotes = function (event) {
 };
 
 
-// =====================
-// CLEAR ALL
-// =====================
+// clear data
 window.clearAllData = function () {
   if (!confirm("All notes will be permanently deleted")) return;
   localStorage.removeItem("keepit_notes");

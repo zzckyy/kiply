@@ -200,7 +200,7 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  bottom: 60px;
+  bottom: 80px;
   right: 20px;
   z-index: 99999;
 }
@@ -262,8 +262,12 @@ i,
   /* border-radius: 8px; */
   padding: 12px;
   /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
-  border: 0px solid var(--background);
-  width: 100%;
+  /* border: 3px solid var(--background); */
+  width: 92%;
+
+  position: sticky;
+  top: 50px;
+  z-index: 10;
   
   
 }
@@ -277,7 +281,7 @@ i,
   border: 1px solid var(--background);
   width: 100%;
 
-  padding-bottom: 100px;
+  padding-bottom: 200px;
 }
 
 .editor-container .input {
@@ -294,7 +298,7 @@ i,
 }
 
 .editor-area {
-  min-height: 20rem;
+  min-height: 30rem;
   line-height: 1.6;
   width: 100%;
   border: 1px solid var(--background);
